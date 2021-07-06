@@ -1,0 +1,19 @@
+/* .Activity .contentArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.Activity .activityHeader {
+}
+
+.Activity .activityCards {
+  background: tomato;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Activity .activityCards .card {
+  height: 220px;
+  width: 360px;
+} */

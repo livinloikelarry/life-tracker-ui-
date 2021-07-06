@@ -1,0 +1,65 @@
+.Home {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  /* new stuff come below */
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-image: url(https://images.unsplash.com/flagged/photo-1556746834-cbb4a38ee593?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80);
+}
+.Home .jumbo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-top: 50px;
+  margin-bottom: 30px; */
+  /* new stuff comes below */
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  justify-content: center;
+}
+.Home .jumbo h3 {
+  font-size: 21px;
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.Home .jumbo h1 {
+  color: white;
+  font-size: 60px;
+  font-weight: 900;
+}
+.Home .actions {
+  margin: 10px 0 30px;
+}
+.Home .actions .links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+.Home .actions .links button {
+  min-width: 280px;
+}
+.Home .infoIcons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+/* icons are currently spread apart because of padding */
+.Home .infoIcons h5 {
+  color: white;
+  padding: 10px;
+  font-weight: 700;
+  font-size: 16px;
+}

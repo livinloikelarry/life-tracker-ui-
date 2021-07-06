@@ -1,0 +1,49 @@
+.exerciseContent {
+  background: #164a41;
+}
+.titleBar {
+  background: #9dc88d;
+  padding: 40px;
+}
+.titleBar .title {
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.addExercise {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+.addExercise h1 {
+  font-weight: 800;
+}
+.addExercise .addExerciseBtn {
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #9dc88d;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.formAndCards .exerciseForm {
+  display: flex;
+  justify-content: center;
+}
+
+.cardGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

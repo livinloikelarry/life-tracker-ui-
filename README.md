@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Week 3 Assignment: Life Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Submitted by: **Yuvia Leon**
 
-## Available Scripts
+Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
 
-In the project directory, you can run:
+## Application Features
 
-### `npm start`
+### Core Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [x] **The Nav Bar:** Implement customized views for users who are logged in vs not logged in.
+  - [x] If the user is logged in, it should display a **Sign Out** button.
+  - [x] If no user is logged in, it should display **Login** and **Register** buttons
+  - [x] Display a logo on the far left side, and contain links to the individual detailed activity page.
+- [x] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about
+- [x] **Login Page:** A form that allows users to login with email and password.
+- [x] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
+- [x] When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
+- [ ] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
+- [x] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves.
+- [x] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
+- [ ] Deployed website with Heroku & Surge.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Detailed Activity Page:**
 
-### `npm test`
+- [ ] The detailed activity page should display a feed of all previous tracked activities.
+- [ ] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.)
+- [ ] The activity tracked should be given a unique id for easy lookup.
+  - [Table Schema](life-tracker-schema.sql)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Stretch Features
 
-### `npm run build`
+Implement any of the following features to improve the application:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [ ] Each model (`nutrition`, `exercise`, and `sleep`) should also implement a `fetchById` method that queries the database for a record by its id and only serves it to users who own that resource. Create a new dynamic route on the frontend that displays detail about a single record. For instance, `nutrition/detail/:id` should show a page with all the information about a single nutrition item.
+- [ ] Provide a dropdown that allows users to filter activity based on a certain attribute of any activity item.
+- [ ] Calculate aggregate statistics based on time periods - such as daily, weekly, monthly aggregates.
+- [ ] Create a page that shows all other users that use the life tracker application and allow users to follow each other.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Walkthrough Video
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![](http://g.recordit.co/TOoux2VP2U.gif)
+![](http://g.recordit.co/Ie5GmfgmxU.gif)
+![](http://g.recordit.co/Ju3MDtizYl.gif)
 
-### `npm run eject`
+### Reflection
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Yes they were helpful in completing the assignment. I felt unprepared to plan out my project. I can learn by watching the videos and working through the labs but planning a project is different because you have to break it down into small steps and be organized
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+If I had more time I would have cleaned up my code because I was beginning to confuse my own self with what I had. I would've liked to have gotten closer to the deployed example that we were given
 
-## Learn More
+- Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+I noticed a lot of my peers have begun to master material ui and I think that I will watch some videos and read up on how to use it
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Open-source libraries used
 
-### Code Splitting
+- Add any links to open-source libraries used in your project.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Shout out
 
-### Analyzing the Bundle Size
+Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Shouout to my capstone group for being very kind

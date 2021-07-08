@@ -36,10 +36,10 @@
   cursor: pointer;
   margin-top: 15px;
 }
-
-.formAndCards .exerciseForm {
+.exerciseForm {
   display: flex;
   justify-content: center;
+  padding-top: 30px;
 }
 
 .cardGrid {

@@ -14,6 +14,8 @@ export default function Exercise({ user, addExercise }) {
   useEffect(() => {
     const fetchExercises = async () => {
       setIsFetching(true);
+      const isAuthenticated = Boolean(user?.email);
+      console.log("isAuthenticated:", isAuthenticated);
       console.log("we are here");
       const { data, error } = await apiClient.listExercises();
       console.log("data", { data });

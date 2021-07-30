@@ -1,12 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
-export default function Navbar({ user, setUser, setAppState }) {
+export default function Navbar({ user, setUser }) {
   const navigate = useNavigate();
   const isAuthenticated = Boolean(user?.email);
   const handleOnLogout = () => {
-    setAppState({});
+    // reseting the user
     setUser({});
+    // new page view of landing page
     navigate("/");
   };
 

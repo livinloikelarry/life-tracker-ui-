@@ -11,72 +11,42 @@ import "./App.css";
 import Exercise from "../Exercise/Exercise";
 
 function App() {
-  const [appState, setAppState] = useState({});
   const [user, setUser] = useState({});
-  const [exercises, setExercises] = useState([]);
   const [error, setError] = useState(null);
-  const [isFetching, setIsFetching] = useState(false);
-
-  useEffect(() => {
-    // once the app runs fetch exercises
-    const fetchExercises = async () => {
-      setIsFetching(true);
-      const { data, error } = await apiClient.listExercises();
-      console.log({ data });
-      if (data) setExercises(data.exercises);
-      if (error) setError(error);
-
-      setIsFetching(false);
-    };
-
-    fetchExercises();
-  }, []);
-
-  const addExercise = (newExercise) => {
-    setExercises((oldExercises) => [newExercise, ...oldExercises]);
-  };
 
   useEffect(() => {
     const fetchUser = async () => {
+      console.log("fetch user was started");
       const { data, error } = await apiClient.fetchUserFromToken();
       if (data) setUser(data.user);
       if (error) setError(error);
     };
     const token = localStorage.getItem("life_tracker_token");
+    console.log("the token:", token);
     if (token) {
       apiClient.setToken(token);
+      console.log("about to call fetchUser");
       fetchUser();
     }
   }, []);
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar user={user} setUser={setUser} setAppState={setAppState} />
+        <Navbar user={user} setUser={setUser} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route exact path="/" element={<Home />} />
           <Route
+            exact
             path="/register"
             element={<Register setUser={setUser} user={user} />}
           />
           <Route
+            exact
             path="/login"
             element={<Login setUser={setUser} user={user} />}
           />
           <Route path="/activity" element={<Activity user={user} />} />
-          <Route
-            path="/exercises"
-            element={
-              <Exercise
-                user={user}
-                error={error}
-                exercises={exercises}
-                setExercises={setExercises}
-                setIsFetching={setIsFetching}
-                setError={setError}
-                addExercise={addExercise}
-              />
-            }
-          />
+          <Route exact path="/exercises" element={<Exercise user={user} />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,19 +1,100 @@
-/* .Activity .contentArea {
+.ActivityPage .actions {
+  /* activity page title and buttons div */
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: var(--bg-color);
+  margin-top: 50px;
+  justify-content: space-between;
+}
+.ActivityPage .actions .heading {
+  /* "Activity Feed" */
+  display: flex;
+  padding-left: 180px;
+  flex-direction: row;
+  width: 100%;
+  font-size: 42px;
+  color: var(--pure-white);
+}
+.ActivityPage .actions .buttons {
+  /* buttons div */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  grid-gap: 20px;
+  gap: 20px;
+}
+.Button.outline.orange {
+  background: transparent;
+  color: #f0932b;
+  border: 1px solid #f0932b;
+}
+.Button.outline.blue {
+  background: transparent;
+  color: #22a6b3;
+  border: 1px solid #22a6b3;
+}
+.Button.outline.green {
+  background: transparent;
+  color: #6ab04c;
+  border: 1px solid #6ab04c;
+}
+.ActivityPage .main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 35px;
+  grid-gap: 15px;
+  gap: 15px;
+  justify-content: center;
+}
+.SummaryStat,
+.SummaryStat .background {
+  width: 360px;
+  height: 220px;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
 }
-
-.Activity .activityHeader {
+/* ORANGE STAT */
+.SummaryStat.orange,
+.SummaryStat.orange .background {
+  background-image: radial-gradient(#f0932b, yellow, #f0932b);
 }
 
-.Activity .activityCards {
-  background: tomato;
+/* BLUE STAT */
+.SummaryStat.blue .background {
+  background-image: radial-gradient(#22a6b3, rgb(0, 98, 255), #22a6b3);
+}
+
+/* GREEN STAT */
+.SummaryStat.green .background {
+  background-image: radial-gradient(#6ab04c, rgb(50, 206, 36), #6ab04c);
+}
+.main .background {
+  justify-content: space-around;
+  padding: 16px 32px;
+}
+.SummaryStat p {
+  color: white;
+  font-size: 20px;
+}
+.SummaryStat h1 {
+  color: white;
+  font-size: 60px;
+  font-weight: 700;
+}
+.ActivityPage p {
+  font-weight: 700;
+  font-size: 30px;
+  color: white;
+  margin-top: 35px;
+}
+.ActivityPage .main {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  width: 100%;
+  margin-top: 35px;
+  grid-gap: 15px;
+  gap: 15px;
 }
-
-.Activity .activityCards .card {
-  height: 220px;
-  width: 360px;
-} */

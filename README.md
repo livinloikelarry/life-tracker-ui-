@@ -42,6 +42,14 @@ Implement any of the following features to improve the application:
 ![](http://g.recordit.co/TOoux2VP2U.gif)
 ![](http://g.recordit.co/Ie5GmfgmxU.gif)
 ![](http://g.recordit.co/Ju3MDtizYl.gif)
+![](http://g.recordit.co/mjvrETkf3e.gif)
+^ showing that when a user is not logged in they see a message telling them to log in
+![](http://g.recordit.co/Y8wi1YSuqQ.gif)
+^ showing the authentication token
+![](http://g.recordit.co/3w1PV7uO4Z.gif)
+^ made changed to the exercise page
+![](http://g.recordit.co/H6DV2l5rZL.gif)
+^ my web app does not have a lookup feature on the front end but the backend shows that each activity has a unique id
 
 ### Reflection
 
@@ -65,4 +73,4 @@ I noticed a lot of my peers have begun to master material ui and I think that I 
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
 
-Shouout to my capstone group for being very kind
+Shoutout to my capstone group for being very kind

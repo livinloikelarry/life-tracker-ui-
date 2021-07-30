@@ -3,9 +3,17 @@ import apiClient from "../../services/apiClient";
 // import NotAllowed from "../NotAllowed/NotAllowed";
 import "./NewExerciseForm.css";
 
-export default function NewExerciseForm({ user, addExercise }) {
+export default function NewExerciseForm({
+  showForm,
+  setShowForm,
+  setExercises,
+}) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  // this way we will have an array of all of our exercises
+  const addExercise = (newExercise) => {
+    setExercises((oldExercises) => [newExercise, ...oldExercises]);
+  };
   const [form, setForm] = useState({
     name: "",
     category: "",
@@ -20,6 +28,8 @@ export default function NewExerciseForm({ user, addExercise }) {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    // so the form does not show after submission
+    setShowForm(false);
 
     const { data, error } = await apiClient.createCard({
       name: form.name,
@@ -37,9 +47,6 @@ export default function NewExerciseForm({ user, addExercise }) {
   };
 
   const renderForm = () => {
-    // if (!user?.email) {
-    //   return <NotAllowed />;
-    // }
     return (
       <div className="form">
         <div className="input-field">
@@ -68,20 +75,20 @@ export default function NewExerciseForm({ user, addExercise }) {
           <label htmlFor="duration">Duration</label>
           <input
             type="text"
-            name="intensity"
-            placeholder="Intensity"
-            value={form.intensity}
+            name="duration"
+            placeholder="duration"
+            value={form.duration}
             onChange={handleOnInputChange}
           />
         </div>
 
         <div className="input-field">
-          <label htmlFor="duration">Intensity</label>
+          <label htmlFor="Intensity">Intensity</label>
           <input
             type="text"
-            name="duration"
-            placeholder="Duration"
-            value={form.duration}
+            name="intensity"
+            placeholder="intensity"
+            value={form.intensity}
             onChange={handleOnInputChange}
           />
         </div>

@@ -56,6 +56,7 @@ export default function Signup({ user, setUser }) {
     setForm((f) => ({ ...f, [event.target.name]: event.target.value }));
   };
 
+  // console.log("user info", form.firstName, form.lastName, form.email);
   const handleOnSubmit = async () => {
     setIsLoading(true);
     setErrors((e) => ({ ...e, form: null }));
@@ -69,9 +70,12 @@ export default function Signup({ user, setUser }) {
     }
 
     const { data, error } = await apiClient.signupUser({
+      first_name: form.firstName,
+      last_name: form.lastName,
       email: form.email,
       password: form.password,
     });
+    // console.log("the data is", data);
     if (error) setErrors((e) => ({ ...e, form: error }));
     if (data?.user) {
       setUser(data.user);

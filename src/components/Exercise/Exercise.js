@@ -1,5 +1,5 @@
 // import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import apiClient from "../../services/apiClient";
 import Grid from "@material-ui/core/Grid";
 import { Container } from "@material-ui/core";
@@ -7,47 +7,57 @@ import ExerciseCard from "../ExerciseCard/ExerciseCard";
 import NewExerciseForm from "../NewExerciseForm/NewExerciseForm";
 import "./Exercise.css";
 
-export default function Exercise({ user, addExercise }) {
+export default function Exercise({ user }) {
   const [exercises, setExercises] = useState([]);
-  const [error, setError] = useState(null);
-  const [isFetching, setIsFetching] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+  // this use effect will make an api call
   useEffect(() => {
     const fetchExercises = async () => {
-      setIsFetching(true);
-      const isAuthenticated = Boolean(user?.email);
-      console.log("isAuthenticated:", isAuthenticated);
-      console.log("we are here");
-      const { data, error } = await apiClient.listExercises();
-      console.log("data", { data });
+      const { data } = await apiClient.listExercises();
       if (data) setExercises(data.exercises);
-      if (error) setError(error);
-      setIsFetching(false);
     };
 
     fetchExercises();
   }, []);
 
-  return (
-    <Container>
-      <div className="titleBar">
-        <h1 className="title">Exercise</h1>
-      </div>
-      <div className="contentPage">
-        <div className="addExercise">
-          <h1>Overview</h1>
-          <button className="addExerciseBtn">Add Exercise</button>
+  // for removing and displaying form
+  if (user.email) {
+    return (
+      <Container>
+        <div className="titleBar">
+          <h1 className="title">Exercise</h1>
         </div>
-        <Grid container spacing={3}>
-          {exercises?.map((exercise) => (
-            <Grid item key={exercise.id} xs={12} md={6} lg={4}>
-              <ExerciseCard exercise={exercise} />
-            </Grid>
-          ))}
-        </Grid>
-        <div className="exerciseForm">
-          <NewExerciseForm user={user} addExercise={addExercise} />
+        <div className="contentPage">
+          <div className="addExercise">
+            <h1>Overview</h1>
+            <button
+              className="addExerciseBtn"
+              onClick={() => setShowForm((prev) => !prev)}
+            >
+              Add Exercise
+            </button>
+          </div>
+          <Grid container spacing={3}>
+            {exercises?.map((exercise) => (
+              <Grid item key={exercise.id} xs={12} md={6} lg={4}>
+                <ExerciseCard exercise={exercise} />
+              </Grid>
+            ))}
+          </Grid>
+          <div className="exerciseForm">
+            {showForm ? (
+              <NewExerciseForm
+                showForm={showForm}
+                user={user}
+                setShowForm={setShowForm}
+                setExercises={setExercises}
+              />
+            ) : null}
+          </div>
         </div>
-      </div>
-    </Container>
-  );
+      </Container>
+    );
+  } else {
+    return <h1>PLEASE LOG IN</h1>;
+  }
 }
